@@ -1,0 +1,97 @@
+<% include header %>
+    <div id="pagewrap">
+
+    <header id="header">
+
+
+        <img src="company_logo.jpg" width="100%" ></img>
+
+
+        <nav>
+            <ul id="main-nav" class="clearfix">
+                <li><a href="http://ecard.shisu.edu.cn/web/guest/home">首页</a></li>
+                <li><a href="http://ecard.shisu.edu.cn/web/guest/ecarddoc">文档下载</a></li>
+                <li><a href="http://ecard.shisu.edu.cn/web/guest/distributionmap">系统图集</a> </li>
+                <li><a href="http://ecard.shisu.edu.cn/web/guest/ecardrule">规章制度</a></li>
+                <li><a href="http://ecard.shisu.edu.cn/web/guest/ecardtutorial">操作指南</a></li>
+                <li><a href="http://ecard.shisu.edu.cn/web/guest/ecardfaq">FAQ</a></li>
+                <li><a href="http://ecard.shisu.edu.cn/web/guest/ecardabout">系统简介</a></li>
+                <li><a href="http://ecard.shisu.edu.cn/web/guest/ecardservice">服务信息</a></li>
+            </ul>
+            <!-- /#main-nav -->
+        </nav>
+
+        <form id="searchform" method="post">
+            <input type="text" name="keyword" placeholder="Search">
+        </form>
+
+    </header>
+    <!-- /#header -->
+
+    <div id="content">
+
+        <article class="post clearfix">
+
+            <header>
+                <h1 class="post-title"><a href="#">失卡招领</a></h1>
+            </header>
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>学工号</th>
+                    <th>领取地点</th>
+                    <th>发布时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < result.length; i++) { %>
+                       <tr>
+                            <td><%= result[i].studentId %></td>
+                            <td><%= result[i].name %></td>
+                            <td><%= result[i].sdate %></td>
+                       </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+
+        </article>
+        <!-- /.post -->
+
+    </div>
+    <!-- /#content -->
+
+
+    <aside id="sidebar">
+
+        <section class="widget">
+            <h4 class="widgettitle">友情链接</h4>
+            <ul>
+                <li><span class="glyphicon glyphicon-bookmark" /><a href="http://www.shisu.edu.cn">上海外国语大学官网</a> </li>
+                <li><span class="glyphicon glyphicon-bookmark" /><a href="http://portal.shisu.edu.cn">上海外国语大学统一身份认证</a></li>
+                <li><span class="glyphicon glyphicon-bookmark" /><a href="http://itc.shisu.edu.cn ">上海外国语大学信息技术中心官网</a></li>
+            </ul>
+        </section>
+        <!-- /.widget -->
+
+        <section class="widget clearfix">
+            <h4 class="widgettitle">时间</h4>
+            <ul>
+                <li id="showtimes"></li>
+            </ul>
+        </section>
+        <!-- /.widget -->
+
+    </aside>
+    <!-- /#sidebar -->
+
+
+
+
+
+    <h2>操作</h2>
+    <a href="/create">增加</a>
+    <a href="/del">删除</a>
+    <a href="/update">修改</a>
+    <a href="/reach">查找</a>
+<% include footer %>
