@@ -1,6 +1,6 @@
 /*
  * jQuery Basic Table
- * Author: Jerry Low
+ * Author: JianFeng Shi
  */
 
 (function($) {
