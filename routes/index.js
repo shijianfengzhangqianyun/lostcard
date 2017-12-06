@@ -51,7 +51,7 @@ const routes = (app) => {
         console.log(req.body)
         let num = req.body.num,
             condiction = {_id: req.body._id[num]},
-            query = {$set: {name: req.body.name[num], studentId: req.body.student_id[num]}}
+            query = {$set: {name: req.body.name[num], studentId: req.body.student_id[num]},sdate: req.body.sdate[num]}
         classModel.update(condiction, query, (err, result) => {
             if(err) {
                 console.log(err)
