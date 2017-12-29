@@ -12,7 +12,8 @@ db.once('open', (callback) => {
 const classSchema = new mongoose.Schema({
     studentId: String,
     name: String,
-    sdate: String
+    sdate: String,
+    remark: String
 })
 // 创建model
 const classModel = mongoose.model('newClass', classSchema) // newClass为创建或选中的集合

@@ -7,7 +7,7 @@ const routes = (app) => {
         classModel.find({}, (err, result, res) => {
             if(err) return console.log(err)
             response.render('index', { result })
-        })
+        }).sort({'_id':-1}).limit(9)
     })
     // 增加学生信息
     app.get('/create', (req, res, next) => {
@@ -17,12 +17,13 @@ const routes = (app) => {
         let newStudent = [{
             name: req.body.name,
             studentId: req.body.student_id,
-            sdate: req.body.sdate
+            sdate: req.body.sdate,
+            remark: req.body.remark
         }]
         classModel.create(newStudent, (err) => {
             if(err) return console.log(err)
-            res.send("<a href='/'>添加成功，点击返回首页</a>")
-        })
+            res.send("<a href='/'>增加成功，点击返回首页</a>")
+             })
     })
     // 删除学生信息
     app.get('/del', (req, res, next) => {
@@ -51,7 +52,7 @@ const routes = (app) => {
         console.log(req.body)
         let num = req.body.num,
             condiction = {_id: req.body._id[num]},
-            query = {$set: {name: req.body.name[num], studentId: req.body.student_id[num]},sdate: req.body.sdate[num]}
+            query = {$set: {name: req.body.name[num], studentId: req.body.student_id[num]},sdate: req.body.sdate[num],remark: req.body.remark[num]}
         classModel.update(condiction, query, (err, result) => {
             if(err) {
                 console.log(err)
@@ -92,7 +93,7 @@ const routes = (app) => {
         classModel.find({studentId: keyWord}, (err, result) => {
             if(err) return console.log(err)
             response.render('index', { result })
-        })
+        }).sort({'_id':-1})
 
 
     })
