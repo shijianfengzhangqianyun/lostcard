@@ -4,7 +4,7 @@ const routes = (app) => {
     // 首页
     app.get('/', (req, res, next) => {
         let response = res
-        classModel.find({}, (err, result, res) => {
+        classModel.find({remark:'未领取'}, (err, result, res) => {
             if(err) return console.log(err)
             response.render('index', { result })
         }).sort({'_id':-1}).limit(9)
