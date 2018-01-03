@@ -30,7 +30,7 @@ const routes = (app) => {
         }]
         classModel.create(newStudent, (err) => {
             if(err) return console.log(err)
-            res.send("<a href='/'>增加成功，点击返回首页</a>")
+            res.send("<a href='/reach'>增加成功，点击返回首页</a>")
              })
     })
     // 删除学生信息
@@ -45,7 +45,7 @@ const routes = (app) => {
         classModel.remove({_id: req.body.student}, (err, result) => {
             if(err) return console.log(err)
             console.log(result.result)
-            res.send("<a href='/'>删除成功，点击返回首页</a>")
+            res.send("<a href='/reach'>删除成功，点击返回首页</a>")
         })
     })
     // 修改学生信息
@@ -54,7 +54,7 @@ const routes = (app) => {
         classModel.find({}, (err, result, res) => {
             if(err) return console.log(err)
             response.render('update', { result })
-        })
+        }).sort({'_id':1})
     })
     app.post('/update', (req, res, next) => {
         console.log(req.body)
@@ -66,8 +66,7 @@ const routes = (app) => {
                 console.log(err)
                 res.send('<script>alert("请勾选待修改的学生")</script>')
             }
-            res.send("<a href='/'>修改成功，点击返回首页</a>")
-            /*res.redirect('/update');*/
+            res.send("<a href='/reach'>修改成功，点击返回首页</a>")
         })
     })
     // 查找学生
