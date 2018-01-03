@@ -9,6 +9,14 @@ const routes = (app) => {
             response.render('index', { result })
         }).sort({'_id':-1}).limit(9)
     })
+    //管理页面
+    app.get('/reach', (req, res, next) => {
+        let response = res
+        classModel.find({remark:'未领取'}, (err, result, res) => {
+            if(err) return console.log(err)
+            response.render('reach', { result })
+        }).sort({'_id':-1}).limit(9)
+    })
     // 增加学生信息
     app.get('/create', (req, res, next) => {
         res.render('create', {})
@@ -59,6 +67,7 @@ const routes = (app) => {
                 res.send('<script>alert("请勾选待修改的学生")</script>')
             }
             res.send("<a href='/'>修改成功，点击返回首页</a>")
+            /*res.redirect('/update');*/
         })
     })
     // 查找学生

@@ -1,13 +1,83 @@
 <% include header %>
-    <h1>查找学生信息</h1>
-    <form method="post">
-        <input type="text" name="keyword">
-        <button type="submit">查找</button>
-    </form>
-    <% if(result) { %>
-        <h2>查询结果：</h2>
-        姓名：<%= result[0].name %>，学号：<%= result[0].studentId %>
-        <br><br>
-        <a href='/'>查询完成 点击返回主页</a>
-    <% } %>
+    <div id="pagewrap">
+
+    <header id="header">
+
+
+        <img src="company_logo.jpg" width="100%" ></img>
+
+
+        <nav>
+            <ul id="main-nav" class="clearfix">
+                <li><a href="/create">增加</a></li>
+                <li><a href="/del">删除</a></li>
+                <li><a href="/update">修改</a> </li>
+            </ul>
+            <!-- /#main-nav -->
+        </nav>
+
+        <form id="searchform" method="post">
+            <input type="text" name="keyword" placeholder="Search">
+        </form>
+
+    </header>
+    <!-- /#header -->
+
+    <div id="content">
+
+        <article class="post clearfix">
+
+            <header>
+                <h1 class="post-title"><a href="#">失卡招领</a></h1>
+            </header>
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>学工号</th>
+                    <th>领取地点</th>
+                    <th>发布时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < result.length; i++) { %>
+                       <tr>
+                            <td><%= result[i].studentId %></td>
+                            <td><%= result[i].name %></td>
+                            <td><%= result[i].sdate %></td>
+                       </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+
+        </article>
+        <!-- /.post -->
+
+    </div>
+    <!-- /#content -->
+
+
+    <aside id="sidebar">
+
+        <section class="widget">
+            <h4 class="widgettitle">友情链接</h4>
+            <ul>
+                <li><span class="glyphicon m-bookmark" /><a href="http://www.shisu.edu.cn">上海外国语大学官网</a> </li>
+                <li><span class="glyphicon glyphicon-bookmark" /><a href="http://portal.shisu.edu.cn">上海外国语大学统一身份认证</a></li>
+                <li><span class="glyphicon glyphicon-bookmark" /><a href="http://itc.shisu.edu.cn ">上海外国语大学信息技术中心官网</a></li>
+            </ul>
+        </section>
+        <!-- /.widget -->
+
+        <section class="widget clearfix">
+            <h4 class="widgettitle">时间</h4>
+            <ul>
+                <li id="showtimes"></li>
+            </ul>
+        </section>
+        <!-- /.widget -->
+
+    </aside>
+    <!-- /#sidebar -->
+
 <% include footer %>
