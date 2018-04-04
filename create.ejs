@@ -1,0 +1,16 @@
+<% include header %>
+    <h1>增加学生信息</h1>
+    <form method="post">
+        学号：<input type="text" name="student_id">
+        领取地点：<select name="name">
+            <option value="虹口一卡通中心">虹口一卡通中心</option>
+            <option value="松江一卡通中心">松江一卡通中心</option>
+        </select>
+        发布时间：<input type="text" name="sdate" id="adate">
+        备注：<select name="remark">
+        	<option value="未领取">未领取</option>
+            <option value="领取">领取</option>
+        </select>
+        <button type="submit">确定</button>
+    </form>
+<% include footer %>
