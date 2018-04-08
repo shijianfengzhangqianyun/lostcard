@@ -62,8 +62,11 @@ function show_cur_times(){
 
     //拼接年月日时分秒
     var date_str = year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+" "+week;
-
+    var date_simple=year+month+day
     //显示在id为showtimes的容器里
+    if (document.getElementById("adate")!=null){
+        document.getElementById("adate").value= date_simple;
+    }
     if (document.getElementById("showtimes")!=null){
         document.getElementById("showtimes").innerHTML= date_str;
 }
